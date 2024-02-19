@@ -11,13 +11,13 @@ export default class users extends Model {
 
     @Column({
         type: DataType.STRING,
-        allowNull: false,
+        allowNull: true,
     })
     firstName!: string;
 
     @Column({
         type: DataType.STRING,
-        allowNull: false,
+        allowNull: true,
     })
     lastName!: string;
 
@@ -29,7 +29,7 @@ export default class users extends Model {
 
     @Column({
         type: DataType.STRING,
-        allowNull: false
+        allowNull: true
     })
     password!: string;
 
@@ -38,4 +38,10 @@ export default class users extends Model {
         allowNull: false,
     })
     role!: string;
+
+    @Column({
+        type: DataType.STRING,
+        allowNull: true,
+    })
+    invites!: string;
 }

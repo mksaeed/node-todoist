@@ -20,7 +20,7 @@ export const login = async (request, response) => {
             id: user.id,
             firstName: user.firstName,
             lastName: user.firstName,
-            email: user.firstName,
+            email: user.email,
             token: generateToken({ userId: user.id, email: user.email }),
             role: user.role,
             createdAt: user.createdAt,
@@ -33,8 +33,3 @@ export const login = async (request, response) => {
     }
 
 };
-
-export const signUp = (request, response) => {
-    console.log('request', request)
-    return response.status(200).json({ status: true, data: [], message: 'Login successful' });
-}

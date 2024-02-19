@@ -6,6 +6,6 @@ const router = express.Router();
 
 // Login user with validation handled in authController
 router.post('/login', AuthController.login);
-router.get('/signUp', AuthController.signUp);
+
 
 export default router;
