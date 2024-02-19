@@ -34,9 +34,12 @@ To Run Rest Service you need
 5. npm run start
 ```
 
+```
+5. Open Browser | http://localhost:3000/docs
+```
+
 
 ## Contributors
-
 We would like to extend our thanks to the following contributes for helping us build this:
 
 **Developer**: Mk

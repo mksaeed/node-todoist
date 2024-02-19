@@ -4,6 +4,9 @@ import  '../config/dbConnect'
 import express from 'express';
 import cors from 'cors';
 import * as http from 'http'
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+
 
 import indexRouter from '../routes/index-router';
 const app = express();
@@ -13,6 +16,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/v1', indexRouter);
+
+const swaggerOptions = {
+    definition: {
+        openapi: '3.0.0',
+        info: {
+            title: 'NodeJS Todoist App',
+            version: '1.0.0',
+        },
+    },
+    apis: ['./routes/*.ts'],
+};
+
+const swaggerSpec = swaggerJSDoc(swaggerOptions);
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use((request, response) => {
     response.status(404).json({ message: `unknown route: ${request.path}`});
