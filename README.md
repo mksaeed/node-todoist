@@ -15,15 +15,23 @@ To Run Rest Service you need
 ## How to setup the Project
  To Setup the project open your terminal in the root directory of the project and run the following commands:
  ```
- 1. Create .env file in the root folder
+ 1. Rename .env.example to .env file in the root folder
  ```
 
 ```
-2. run npm i
+2. run command | npm i
 ```
 
 ```
-3. npm run start
+3. run command | npx sequelize-cli db:migrate
+```
+
+```
+4. run command | npx sequelize-cli db:seed --seed 20240219185059-userSeeder
+```
+
+```
+5. npm run start
 ```
 
 
