@@ -1,13 +1,17 @@
 import { Sequelize } from 'sequelize-typescript';
-const {sql_db, sql_host, sql_username, sql_password } = process.env;
+import users from "../models/user-model";
+const {DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 
 const sequelize = new Sequelize({
-    host: sql_host,
-    database: sql_db,
-    username: sql_username,
-    password: sql_password,
+    host: DB_HOST,
+    database: DB_NAME,
+    username: DB_USER,
+    password: DB_PASSWORD,
     dialect: 'mysql'
 });
+
+sequelize.addModels([users]);
+
 
 
 export const initializeDatabase = async () => {

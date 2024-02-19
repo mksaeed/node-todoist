@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/v1', indexRouter);
 
 app.use((request, response) => {
-    response.status(404).json({ message: `unknown route: ${request.path}` });
+    response.status(404).json({ message: `unknown route: ${request.path}`});
 });
 
 const port = Number(process.env.PORT || 3000);
@@ -23,7 +23,7 @@ app.set('query parser', 'extended');
 app.set('port', port);
 const server = http.createServer(app);
 
-function onError(error) {
+function onError(error: { syscall: string; code: any; }) {
     if (error.syscall !== 'listen') {
         throw error;
     }
@@ -46,6 +46,7 @@ function onError(error) {
 
 function onListening() {
     const address = server.address();
+    // @ts-ignore
     const bind =
         typeof address === 'string' ? `pipe ${address}` : `port ${address.port}`;
     console.log(`Listening on ${bind}`);
