@@ -23,7 +23,7 @@ To Run Rest Service you need
 ```
 
 ```
-3. npm run start OR npm run start-dev (Nodemon)
+3. npm run start
 ```
 
 

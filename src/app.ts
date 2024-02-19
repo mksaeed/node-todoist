@@ -1,4 +1,5 @@
 import '../config/environment';
+import  '../config/dbConnect'
 
 import express from 'express';
 import cors from 'cors';
@@ -10,7 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 
 app.use('/v1', indexRouter);
 
@@ -31,7 +31,6 @@ function onError(error) {
     const bind =
         typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
-    // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
             console.error(`${bind} requires elevated privileges`);
@@ -42,11 +41,9 @@ function onError(error) {
         default:
             throw error;
     }
-
     process.exit(1);
 }
 
-// @ts-ignore
 function onListening() {
     const address = server.address();
     const bind =
